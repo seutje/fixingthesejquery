@@ -68,7 +68,14 @@
       .slide p, .slide textarea {
         font-size: 26px;
       }
- 
+
+      .slide textarea:focus {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        bottom: 20px;
+        left: 20px;
+      }
       .slide .counter {
         color: #999999;
         position: absolute;
@@ -141,11 +148,8 @@
         letter-spacing: -.05em;
         color: black;
         text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
-        position: absolute;
-        left: 30px;
-        top: 25px;
+        padding: 20px 0 0 30px;
         margin: 0;
-        padding: 0;
         font-size: 50px;
       }
       
@@ -175,7 +179,7 @@
         overflow: hidden;
       }
       section.text, footer.text {
-        margin:100px 30px 0;
+        margin:20px 30px 0;
       }
       footer {
         font-size: 12px;
@@ -363,6 +367,8 @@
 	padding-left:4px;
       }
       .syntaxhighlighter {
+        height: 400px;
+        overflow: auto;
 		padding:15px 0 14px;
 		margin:5px 0;
 		box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
@@ -541,7 +547,7 @@
 	position:static;
       }
       #intro .bg{
-        background-image:url(../images/adam_baby_computer.jpg);
+        background-image:url(../images/brilleke.jpg);
         background-position:50% 50%;
         background-repeat:no-repeat;
       }

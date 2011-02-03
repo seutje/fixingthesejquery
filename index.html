@@ -35,7 +35,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
-    <title>Fixing These jQuery | adam j. sontag  </title>
+    <title>I can haz jQueries? | seutje</title>
     <link href="css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="css/main.css" rel="stylesheet" type="text/css" />
     <link href="css/syntax.css" rel="stylesheet" type="text/css" />
@@ -49,16 +49,16 @@
         <div class="slide" id="intro">
           <div class="bg">
             <section class="middle landing">
-              <h1>Fixing These <span class='jqueryblue'>jQuery!</span><br/><span class='subtitle'>A Guide to Debugging</span></h1>
-              <h4>adam j. sontag</h4>
+              <h1>I can haz <span class='jqueryblue'>jQueries?</span><br/><span class='subtitle'>Shit sparkles in <span class="count"></span> slides</span></h1>
+              <h4>Steve De Jonghe</h4>
             </section>
             </div>
             <div id="welcome">
               <p>
-                <strong>Thanks for coming!</strong></p>
-                <p><em>Fixing These jQuery</em> is an HTML5 presentation designed to familiarise developers with basic approaches to debugging
-                jQuery and JavaScript code. It also introduces many of the common pitfalls most people encounter at some point on their jQuery journey.
-                It is always a work in progress!
+                <strong>OHAI!</strong></p>
+                <p><em>I can haz jQuery?</em> is a jQuery introduction with a large focus on basic Javascript fundamentals.
+                  It is intended as a solid base and tries to provide good resources for further study or tinkering.
+                  (99% of these slides was shamelessly copied from <a href="http://fixingthesejquery.com">fixingthesejquery</a> by <a href="http://ajpiano.com">adam j. sontag</a>)
               </p>
               <p>Use the left <span class='key'>&larr;</span> and right <span class='key'>&rarr;</span> arrow keys or your mouse wheel to navigate.</p>
           </div>
@@ -69,14 +69,15 @@
 	
         <div class="slide">
           <header>
-            <h1>Who dat?</h1>
+            <h1>Who iz u?</h1>
           </header>
           <section class="text">
+            <h2>seutje</h2>
             <ul>
-              <li><a href="http://yayquery.com">yayQuery</a> Cohost!</li>
-              <li><a href="http://bocoup.com">Bocoup</a> Dev!</li>
-              <li>I've debugged a lot of my own jQuery problems</li>
-              <li>I've debugged a lot of other people's jQuery problems</li>
+              <li>Happy <a class="nascom" href="http://nascom.be">Nascom</a> Dev!</li>
+              <li>Obsessed <a class="drupal" href="http://drupal.org">Drupal</a> Themer!</li>
+              <li>I've helped with the Overlay (I'm sorry).</li>
+              <li>I've debugged quite some jQuery problems</li>
               <li>I've seen <del>it all</del> a lot</li>
             </ul>
           </section>
@@ -86,23 +87,23 @@
 	
         <div class="slide">
           <header>
-            <h1>jQuery is JavaScript</h1>
+            <h1>jQuery, <cite>"it's just JavaScript"</cite><span class="trademark">&trade;</span></h1>
           </header>
           <section class="text">
-            <p>You <strong>will</strong> have to debug it.</p>
+            <p>jQuery is not a magic box of black magic.</p>
 	    <pre class="brush: js; toolbar: false">
-window.alert("Is Not A Debugger")</pre>
-            <p>Why?</p>
-            <iframe src="dontdothis.html" style='width:100%;height800px;' height='300'>Check Out My Awesome, Hand-Rolled Tooltip!</iframe>
+jQuery.poop("rainbows");</pre>
+            <p>If you don't follow certain fundamental rules, you can seriously screw yourself over and end up with slow code that's impossible to maintain.</p>
+            <p>This starts with a solid base of JavaScript.</p>
 	  </section>
         </div>
 
 
 	<div class="slide">
           <header>
-            <h1>JavaScript Debuggers Exist</h1>
+            <h1>Everything is an object!</h1>
             <section>
-              <p class="quoteThing">And if you aren't using them, you are insane.</p>
+              <p class="quoteThing">And this is that, or something....</p>
             </section>
           </header>
         </div>
@@ -110,62 +111,20 @@ window.alert("Is Not A Debugger")</pre>
 	
 	<div class="slide" id='debugger-icons'>
           <header>
-            <h1>Debuggers</h1>
+            <h1>Inheritance</h1>
           </header>
           <section class="text">
-            <figure>
-              <img src="images/firefox.png">
-              <img src="images/firebug.png">
-              <figcaption>
-                Firefox uses <a href="http://getfirebug.com">Firebug</a>
-              </figcaption>
-              <aside>
-                First, <a href="https://addons.mozilla.org/en-US/firefox/addon/1843/">install it</a><br/>
-                F12, or click the insect
-              </aside>
-            </figure>
-            <figure>
-              <img src="images/safari.png">
-              <img src="images/chrome.png">
-              <img src="images/webkit.png">
-              <figcaption>
-                Chrome and Safari use <a href="http://trac.webkit.org/wiki/WebInspector">WebKit Inspector</a>
-              </figcaption>
-              <aside>
-                Cmd-Opt-I / Ctrl-Shift-I
-              </aside>
-            </figure>
-            <figure>
-              <img src="images/opera.png">
-              <img src="images/dragonfly.png">
-              <figcaption>
-                Opera uses <a href="http://www.opera.com/dragonfly/">Dragonfly</a>
-              </figcaption>
-              <aside>
-                Cmd-Opt-I / Ctrl-Shift-I
-              </aside>
-            </figure>
-            <figure>
-              <img src="images/ie8-logo.png">
-              <img src="images/ie9-logo.png">
-              <figcaption>
-                IE8 and IE9 have a built-in debugger
-              </figcaption>
-              <aside>
-                F12
-              </aside>
-            </figure>
-            <figure>
-              <img src="images/ie6-logo.png">
-              <img src="images/visualstudio.png">
-              <figcaption>
-                IE6 and IE7 require you to use a host app to debug. Lame.
-              </figcaption>
-              <aside>
-                GLWTD
-              </aside>
-            </figure>
+            <p>JavaScript works with a prototypal inheritance.</p>
+	    <pre class="brush: js; toolbar: false">
+// example stolen from http://bit.ly/i6GDmu
+// make 2 objects using object literal
+var foo = {one: 1, two: 2}, bar = {three: 3};
 
+bar.__proto__ = foo; // foo is now the parent of bar.
+// bar now inherits properties from bar
+bar.one // 1
+// naturally, bar doesn't lose it's properties
+bar.three // 3</pre>
           </section>
         </div>
 
