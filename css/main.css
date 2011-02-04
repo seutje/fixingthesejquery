@@ -367,7 +367,7 @@
 	padding-left:4px;
       }
       .syntaxhighlighter {
-        height: 400px;
+        max-height: 400px;
         overflow: auto;
 		padding:15px 0 14px;
 		margin:5px 0;
@@ -705,4 +705,26 @@ color:#5DB0E6 !important;
 
 #welcome {
   display:none;
+}
+.trademark {
+  font-size: 0.3em;
+  vertical-align: super;
+}
+
+.alert strong {
+  font-size: 1.7em;
+  display:block;
+  line-height: 1;
+}
+
+.alert strong em {
+  padding-top: 2em;
+  font-size: 2.3em;
+  display: block;
+  line-height: 0.8;
+  color: #ff3434;
+}
+
+.example-only .text .syntaxhighlighter {
+  max-height: 800px;
 }

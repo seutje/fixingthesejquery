@@ -87,7 +87,7 @@
 	
         <div class="slide">
           <header>
-            <h1>jQuery, <cite>"it's just JavaScript"</cite><span class="trademark">&trade;</span></h1>
+            <h1><cite>"it's just JavaScript"</cite><span class="trademark">&trade;</span></h1>
           </header>
           <section class="text">
             <p>jQuery is not a magic box of black magic.</p>
@@ -103,62 +103,200 @@ jQuery.poop("rainbows");</pre>
           <header>
             <h1>Everything is an object!</h1>
             <section>
-              <p class="quoteThing">And this is that, or something....</p>
+              <p class="quoteThing">And that is this, or something....</p>
             </section>
           </header>
         </div>
 
 	
-	<div class="slide" id='debugger-icons'>
+	<div class="slide">
           <header>
             <h1>Inheritance</h1>
           </header>
           <section class="text">
             <p>JavaScript works with a prototypal inheritance.</p>
 	    <pre class="brush: js; toolbar: false">
-// example stolen from http://bit.ly/i6GDmu
+// example stolen from http://bit.ly/i6GDmu (wikipedia).
 // make 2 objects using object literal
 var foo = {one: 1, two: 2}, bar = {three: 3};
 
 bar.__proto__ = foo; // foo is now the parent of bar.
 // bar now inherits properties from bar
-bar.one // 1
+bar.one; // 1
 // naturally, bar doesn't lose it's properties
-bar.three // 3</pre>
+bar.three; // 3</pre>
           </section>
+        </div>
+
+        <div class="slide">
+          <header>
+            <h1>Object Model</h1>
+          </header>
+          <section class="text">
+            <p>Everything in JavaScript is an object and thus inherits its methods and properties.</p>
+	    <pre class="brush: js; toolbar: false">
+// toString is a method all objects have
+Object.toString(); // "function Object() { [native code] }"
+// so every type that inherits from Object, also has it
+Array.toString(); // "function Array() { [native code] }"
+String.toString(); // "function String() { [native code] }"
+Number.toString(); // "function Number() { [native code] }"</pre>
+          </section>
+        </div>
+
+        <div class="slide">
+          <header>
+            <h1>A note of caution</h1>
+          </header>
+          <section class="text">
+            <p class="alert"><strong>Modifying the Object object prototype affects everything, <em>you do not want to fuck with this!</em></strong></p>
+          </section>
+        </div>
+
+        <div class="slide">
+          <header>
+            <h1>More inheritance</h1>
+          </header>
+          <section class="text">
+            <p>There is a lot more to inheritance in JavaScript than that, but it's a bit out of scope for this presentation.</p>
+            <p>A few good resources:</p>
+            <ul>
+              <li><a href="http://ejohn.org/blog/simple-javascript-inheritance/">John Resig - Simple JavaScript Inheritance</a></li>
+              <li><a href="http://developer.mozilla.org/en/JavaScript/Guide/Inheritance_Revisited">Inheritance revisited - MDC Doc Center</a></li>
+              <li><a href="http://www.crockford.com/javascript/inheritance.html">Classical Inheritance in JavaScript</a></li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="slide">
+          <header>
+            <h1>Scope</h1>
+          </header>
+          <section class="text">
+            <p>JavaScript works with a function scope.</p>
+            <p>This means that variables only live within the function they were <em>defined</em> in, and the functions that were defined within it, as long as you use the var statement.</p>
+            <p>When you intend to put a variable in the global scope, you should make it a property of the window object.</p>
+          </section>
+        </div>
+
+        <div class="slide example-only">
+          <header>
+            <h1>Scope - example</h1>
+          </header>
+          <section class="text">
+	    <pre class="brush: js; toolbar: false">
+// Self-executing function
+(function(){
+  // using var statement
+  var foo = 'sparkles',
+      bar = 'rainbows';
+  // not using var statement
+  // equivalent to window.fekk = 'FFFUUU-';
+  fekk = 'FFFUUU-';
+})();
+foo // undefined
+bar // undefined
+fekk // "FFFUUU-"</pre>
+          </section>
+        </div>
+
+        <div class="slide">
+          <header>
+            <h1>Debugging</h1>
+          </header>
+          <section class="text">
+            <p>window.alert is evil!</p>
+            <p>Using alert() can halt the evaluation of code and can cause all sorts of weird shit. The console object provides many means of debugging.</p>
+          </section>
+        </div>
+
+        <div class="slide">
+          <header>
+            <h1>Debugging - Console object</h1>
+          </header>
+          <section class="text">
+            <p>A few handy methods of the console object:</p>
+	    <pre class="brush: js; toolbar: false">
+console.log(obj) // Recursive logging
+console.profile() // Start profiler
+doStuff();
+console.profileEnd() // Stop profiler and print result</pre>
+            <ul>
+              <li>More console: <a href="http://getfirebug.com/wiki/index.php/Console_API">Console API - FirebugWiki</a></li>
+              <li>More debuging: <a href="http://fixingthesejquery.com/">Fixing These jQuery | adam j. sontag  </a></li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="slide">
+          <header>
+            <h1>Debugging - IE</h1>
+          </header>
+          <section class="text">
+            <p>But what about IE and other browsers that don't have a native console object?</p>
+            <p>Fortunately, the native console object can be recreated by the means of plugins or just JavaScript.</p>
+            <ul>
+              <li>FireFox: <a href="http://getfirebug.com/">Firebug</a></li>
+              <li>Internet Explorer: <a href="http://debugbar.com/">DebugBar</a></li>
+              <li>Everything: <a href="http://getfirebug.com/firebuglite">Firebug Lite</a></li>
+            </ul>
+          </section>
+        </div>
+
+	<div class="slide">
+          <header>
+            <h1>On to jQuery!</h1>
+            <section>
+              <p class="quoteThing">Time to fart rainbows</p>
+            </section>
+          </header>
         </div>
 
 
 
-	<div class="slide debugger-screenshots accordioned">
+	<div class="slide">
           <header>
-            <h1>All Look Same</h1>
+            <h1>The jQuery object</h1>
           </header>
           <section class="text">
-            <figure>
-              <img src="images/firebug_screenshot.png">
-              <figcaption>
-                Firebug
-              </figcaption>
-            </figure>
-            <figure>
-              <img src="images/webkit_inspector_screenshot.png">
-              <figcaption>
-                Webkit Inspector
-              </figcaption>
-            </figure>
-            <figure>
-              <img src="images/dragonfly_screenshot.png">
-              <figcaption>
-                Dragonfly
-              </figcaption>
-            </figure>
-            <figure>
-              <img src="images/ie_debugger.png">
-              <figcaption>
-                Internet Explorer 8
-              </figcaption>
-            </figure>
+            <p>The jQuery object has is a function, but also an object with properties and methods.</p>
+	    <pre class="brush: js; toolbar: false">
+// Function
+jQuery('.foo'); // returns a jQuery object
+// Properties
+jQuery.support.opacity; // returns true if opacity is supported
+// Method
+jQuery.ajax(); // performs an asynchronous request</pre>
+          </section>
+        </div>
+
+	<div class="slide example-only">
+          <header>
+            <h1>Eyes on the $$</h1>
+          </header>
+          <section class="text">
+            <p>To make sure jQuery is on the dollar-sign, we use a self-executing function and pass in the jQuery object as argument.</p>
+	    <pre class="brush: js; toolbar: false">
+// mess up the $ var
+$ = 'lolol prototype';
+(function($){
+  $(); // yay!
+})(jQuery);
+$; // "lolol prototype"</pre>
+          </section>
+        </div>
+
+	<div class="slide example-only">
+          <header>
+            <h1>The cake is a lie!</h1>
+          </header>
+          <section class="text">
+            <p>Very often I see people trying to access elements before they are in the page. Either put JavaScript at the bottom or make sure it only runs when the DOM is ready.</p>
+	    <pre class="brush: html; toolbar: false">
+$('.cake'); // no cake
+$(function(){ $('.cake'); } // wait for oven
+<div class="cake">NOMNOM</div>
+$('.cake'); // cake! \o/</pre>
           </section>
         </div>
 	
