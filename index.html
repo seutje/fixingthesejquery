@@ -259,7 +259,7 @@ console.profileEnd() // Stop profiler and print result</pre>
             <h1>The jQuery object</h1>
           </header>
           <section class="text">
-            <p>The jQuery object has is a function, but also an object with properties and methods.</p>
+            <p>The jQuery object is a function, but also an object with properties and methods.</p>
 	    <pre class="brush: js; toolbar: false">
 // Function
 jQuery('.foo'); // returns a jQuery object
@@ -292,16 +292,107 @@ $; // "lolol prototype"</pre>
           </header>
           <section class="text">
             <p>Very often I see people trying to access elements before they are in the page. Either put JavaScript at the bottom or make sure it only runs when the DOM is ready.</p>
-	    <pre class="brush: html; toolbar: false">
+	    <pre class="brush: js; toolbar: false">
 $('.cake'); // no cake
-$(function(){ $('.cake'); } // wait for oven
+// equiv to doc.rdy
+$(function(){ $('.cake'); }); // wait for oven
 <div class="cake">NOMNOM</div>
 $('.cake'); // cake! \o/</pre>
           </section>
         </div>
+
+	<div class="slide example-only">
+          <header>
+            <h1>Hollaback!</h1>
+          </header>
+          <section class="text">
+            <p>A lot of parts of jQuery use a callback system to fire off certain functions when certain operations are completed. But certain things, like animations run on a queue. </p>
+	    <pre class="brush: js; toolbar: false">
+// construct the handler
+var foo = function(e) {
+  // stuff that happens when #foo is clicked
+  console.log('HOLLABACK!');
+}
+// bind the handler
+$('#foo')
+  .bind('click', foo);</pre>
+          </section>
+        </div>
+
+	<div class="slide example-only">
+          <header>
+            <h1>Queueing like a Brit!</h1>
+          </header>
+          <section class="text">
+            <p>Similar to the callback system, but fundamentally different at the same time, is the queue system. This allows you to queue up some operations to be run in serial order.</p>
+            <p>For instance, all animation are put on the "fx" queue by default, but you can make your own queues for whatever you like.</p>
+	    <pre class="brush: js; toolbar: false">
+// construct the handler
+var $foo = $('#foo');
+// slideDown will only start when slideUp is finished
+$foo
+  .slideUp()
+  .slideDown();</pre>
+          </section>
+        </div>
+
+	<div class="slide">
+          <header>
+            <h1>Performance.</h1>
+            <section>
+              <p class="quoteThing">Think of the jiggawatts!</p>
+            </section>
+          </header>
+        </div>
+
+	<div class="slide">
+          <header>
+            <h1>Smelly selectors.</h1>
+          </header>
+          <section class="text">
+            <p>Sizzle (the selector engine used by jQuery) is heavily optimized for performing the most routing types of selectors as fast as possible. Unfortunately, this doesn't mean that using certain selectors will kill your front-end performance.</p>
+            <p>Basically, the same sanity-rules for CSS apply, but noone seems to care about CSS performance impact...</p>
+          </section>
+        </div>
+
+	<div class="slide example-only">
+          <header>
+            <h1>Smelly selectors - Tips.</h1>
+          </header>
+          <section class="text">
+            <p>Some tips:</p>
+            <ul>
+              <li><strong>Don't</strong> specify the element when using an ID.</li>
+              <li><strong>Do</strong> specify the element when using a class.</li>
+              <li>Try to descend from an ID.</li>
+              <li>Try not to use any pseudo-selector (those that start with a colon) or attribute-selector (the ones in square brackets) without specifying the element or something.</li>
+              <li>Use console.profile to test & compare locally</li>
+              <li>Use <a href="http://jsperf.com">JSPerf</a> to test on a broader audience.</li>
+              <li>Watch/read <a href="http://paulirish.com/2009/perf/">jQuery Anti-Patterns for Performance « Paul Irish</a></li>
+            </ul>
+          </section>
+        </div>
+
+	<div class="slide example-only">
+          <header>
+            <h1>Repeating selectors.</h1>
+          </header>
+          <section class="text">
+            <p>One of the most common things I see, is people repeating selectors, or a seeming reluctance to chaining. Not only does this hurt performance, but it also makes it annoying when you have to change the same selector 17 times.</p>
+	    <pre class="brush: js; toolbar: false">
+// bad
+$('#foo').foo();
+$('#foo').bar();
+// better
+$('#foo').foo().bar();
+// even better (in most cases)
+var $foo = $('#foo'); // caching like a pro!
+$foo.foo().bar();</pre>
+          </section>
+        </div>
 	
 
-	<div class="slide debugger-screenshots">
+	<!--<div class="slide debugger-screenshots">
           <header>
             <h1>ZOMG!</h1>
           </header>
@@ -1604,7 +1695,7 @@ checkFoo();
             <li style="margin-top:1em">&lt;-- <a href="http://www.artofobama.com/2009/01/02/narwhals-for-obama/">See this bullet point bigger.</a></li>
           </ul>
           </section>
-        </div>
+        </div>-->
 	
 
 
