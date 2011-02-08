@@ -58,7 +58,7 @@
                 <strong>OHAI!</strong></p>
                 <p><em>I can haz jQuery?</em> is a jQuery introduction with a large focus on basic Javascript fundamentals.
                   It is intended as a solid base and tries to provide good resources for further study or tinkering.
-                  (99% of these slides was shamelessly copied from <a href="http://fixingthesejquery.com">fixingthesejquery</a> by <a href="http://ajpiano.com">adam j. sontag</a>)
+                  (99% of the code for these slides was shamelessly copied from <a href="http://fixingthesejquery.com">fixingthesejquery</a> by <a href="http://ajpiano.com">adam j. sontag</a>)
               </p>
               <p>Use the left <span class='key'>&larr;</span> and right <span class='key'>&rarr;</span> arrow keys or your mouse wheel to navigate.</p>
           </div>
@@ -327,10 +327,8 @@ $('#foo')
             <p>Similar to the callback system, but fundamentally different at the same time, is the queue system. This allows you to queue up some operations to be run in serial order.</p>
             <p>For instance, all animation are put on the "fx" queue by default, but you can make your own queues for whatever you like.</p>
 	    <pre class="brush: js; toolbar: false">
-// construct the handler
-var $foo = $('#foo');
 // slideDown will only start when slideUp is finished
-$foo
+$('#foo')
   .slideUp()
   .slideDown();</pre>
           </section>
