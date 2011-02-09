@@ -524,7 +524,7 @@
       }
       h1,h2  { 
         letter-spacing:.5px;
-        color:#4d0000;
+        color:#004D00;
         font-family:"ChunkFiveRegular";
     }
 
@@ -689,7 +689,7 @@ figure aside {
 }
 
 .jqueryblue {
-color:#5DB0E6 !important;
+color:#00004D !important;
 }
 
 .ui-widget {

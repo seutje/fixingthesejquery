@@ -77,6 +77,7 @@
               <li>Happy <a class="nascom" href="http://nascom.be">Nascom</a> Dev!</li>
               <li>Obsessed <a class="drupal" href="http://drupal.org">Drupal</a> Themer!</li>
               <li>I've helped with the Overlay (I'm sorry).</li>
+              <li>I whore IRC.</li>
               <li>I've debugged quite some jQuery problems</li>
               <li>I've seen <del>it all</del> a lot</li>
             </ul>
@@ -117,7 +118,7 @@ jQuery.poop("rainbows");</pre>
             <p>JavaScript works with a prototypal inheritance.</p>
 	    <pre class="brush: js; toolbar: false">
 // example stolen from http://bit.ly/i6GDmu (wikipedia).
-// make 2 objects using object literal
+// make 2 objects using literal notation
 var foo = {one: 1, two: 2}, bar = {three: 3};
 
 bar.__proto__ = foo; // foo is now the parent of bar.
@@ -207,6 +208,7 @@ fekk // "FFFUUU-"</pre>
           <section class="text">
             <p>window.alert is evil!</p>
             <p>Using alert() can halt the evaluation of code and can cause all sorts of weird shit. The console object provides many means of debugging.</p>
+            <p>Cool browsers have a nice little inspector, a javascript console and give you the ability to set break points and step through your code.</p>
           </section>
         </div>
 
@@ -280,7 +282,7 @@ jQuery.ajax(); // performs an asynchronous request</pre>
 // mess up the $ var
 $ = 'lolol prototype';
 (function($){
-  $(); // yay!
+  $(); // yayQuery!
 })(jQuery);
 $; // "lolol prototype"</pre>
           </section>
@@ -2194,11 +2196,12 @@ css:"keyword"}];this.forHtmlScript(m.scriptScriptTags)}typeof require!="undefine
 
       $(document).ready(function() {
           FTJ.init();
+          $('span.count').text($('div.slide').length);
       });
 
 </script>
 <script type="text/javascript">
-
+/*
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-19721657-1']);
   _gaq.push(['_trackPageview']);
@@ -2208,7 +2211,7 @@ css:"keyword"}];this.forHtmlScript(m.scriptScriptTags)}typeof require!="undefine
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-
+*/
 </script>
 
   </body>
