@@ -153,7 +153,7 @@ Number.toString(); // "function Number() { [native code] }"</pre>
             <p class="alert"><strong>Modifying the Object object prototype affects everything, <em>you do not want to fuck with this!</em></strong></p>
           </section>
         </div>
-
+        
         <div class="slide">
           <header>
             <h1>More inheritance</h1>
@@ -244,6 +244,39 @@ console.profileEnd() // Stop profiler and print result</pre>
             </ul>
           </section>
         </div>
+                
+                        
+                <div class="slide">
+                  <header>
+                    <h1>Don't trust anything!</h1>
+                  </header>
+                  <section class="text">
+                    <p>One of the coolest things about JavaScript is also one of the hardest things to grasp for PHP developers.</p>
+                    <p>A side-effect of the fact that everything is an object, is that every function is a simple variable (except anonymous functions of course), and thus, can be overriden!</p>
+                  </section>
+                </div>
+                        
+                                
+        <div class="slide">
+          <header>
+            <h1>Don't trust anything! - example</h1>
+          </header>
+          <section class="text">
+          <p>Below is a simple example of "duck-punching" or "monkey-patching".</p>
+        <pre class="brush: js; toolbar: false">
+// create isolated scope
+(function() {
+// store a reference to the real function
+var _alert = window.alert;
+// override te function
+window.alert = function(str) {
+// if there's a console and it has a log method,
+// use that, otherwise, use the original alert()
+console && console.log ? console.log(str) : _alert(str);
+}
+})();</pre>
+          </section>
+        </div>
 
 	<div class="slide">
           <header>
@@ -266,7 +299,7 @@ console.profileEnd() // Stop profiler and print result</pre>
 // Function
 jQuery('.foo'); // returns a jQuery object
 // Properties
-jQuery.support.opacity; // returns true if opacity is supported
+jQuery.support.opacity; // true if opacity is supported
 // Method
 jQuery.ajax(); // performs an asynchronous request</pre>
           </section>
